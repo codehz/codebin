@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="400">
+  <defs>
+    <mask id="up">
+      <rect width="400" height="100" fill="white" />
+    </mask>
+    <mask id="down">
+      <rect x="0" y="100" width="400" height="0" fill="white">
+        <animate attributeName="height" from="0" to="300" dur=".3s" begin="1s" fill="freeze" />
+        <animate attributeName="y" from="200" to="100" dur=".3s" begin="1s" fill="freeze" />
+      </rect>
+    </mask>
+    <mask id="face">
+      <rect x="0" y="250" width="400" height="150" fill="white" />
+    </mask>
+    <symbol id="semi-circle" overflow="visible">
+      <path stroke="black" stroke-width="20" fill="none" stroke-linecap="butt"
+        d="M -50 0 a1 1 0 0 1 100 0" />
+    </symbol>
+    <symbol id="rev-semi-circle" overflow="visible">
+      <path stroke="black" stroke-width="20" fill="none" stroke-linecap="butt"
+        d="M -50 0 a1 1 0 0 0 100 0" />
+    </symbol>
+    <symbol id="sym" overflow="visible">
+      <path stroke="black" stroke-width="20" fill="none" stroke-linecap="round"
+        d="M 50 -150 Q 0 -150 0 -100 L 0 -50 Q 0 0 -50 0 Q 0 0 0 50 L 0 100 Q 0 150 50 150" />
+    </symbol>
+    <symbol id="rsym" overflow="visible">
+      <use href="#sym" transform="scale(-1)" />
+    </symbol>
+    <symbol id="eye" overflow="visible">
+      <line y2="50">
+        <animate id="eye1" attributeName="y1" from="0" to="25" begin="2s;eye2.end+2s" dur=".2s" fill="freeze" />
+        <animate attributeName="y2" from="50" to="25" begin="2s;eye2.end+2s" dur=".2s" fill="freeze" />
+        <animate id="eye2" attributeName="y1" from="25" to="0" begin="eye1.end+.2s" dur=".2s" fill="freeze" />
+        <animate attributeName="y2" from="25" to="50" begin="eye1.end+.2s" dur=".2s" fill="freeze" />
+      </line>
+    </symbol>
+    <symbol id="line" overflow="visible">
+      <line>
+        <animate attributeName="x1" from="0" to="-180" begin=".7s" dur=".3s" fill="freeze" />
+        <animate attributeName="x2" from="0" to="180" begin="0s" dur=".3s" fill="freeze" />
+      </line>
+    </symbol>
+  </defs>
+  <svg x="200">
+    <g stroke="black" stroke-width="20" fill="none" stroke-linecap="round">
+      <svg x="200" y="200" overflow="visible" >
+        <use href="#line" transform="rotate(-90)">
+          <animateTransform attributeName="transform" type="rotate" from="-90" to="0" begin=".4s" dur=".3s"  fill="freeze" />
+        </use>
+        <animate attributeName="y" from="200" to="100" begin="1s" dur=".3s" fill="freeze" />
+      </svg>
+      <svg mask="url(#down)">
+        <rect x="80" y="50" width="240" height="300" rx="50" mask="url(#down)" />
+        <use x="150" y="150" href="#eye" />
+        <use x="250" y="150" href="#eye" />
+      </svg>
+      <use x="200" y="200" href="#semi-circle">
+        <animate attributeName="y" from="200" to="100" begin="1s" dur=".3s" fill="freeze" />
+      </use>
+      <use x="200" y="200" href="#rev-semi-circle">
+        <animate attributeName="y" from="200" to="250" begin="1s" dur=".2s" fill="freeze" />
+      </use>
+    </g>
+  </svg>
+  <use href="#sym" x="100" y="200" />
+  <use href="#rsym" x="700" y="200" />
+</svg>
