@@ -29,10 +29,14 @@
     </symbol>
     <symbol id="eye" overflow="visible">
       <line y2="50">
-        <animate id="eye1" attributeName="y1" from="0" to="25" begin="2s;eye2.end+2s" dur=".2s" fill="freeze" />
-        <animate attributeName="y2" from="50" to="25" begin="2s;eye2.end+2s" dur=".2s" fill="freeze" />
-        <animate id="eye2" attributeName="y1" from="25" to="0" begin="eye1.end+.2s" dur=".2s" fill="freeze" />
-        <animate attributeName="y2" from="25" to="50" begin="eye1.end+.2s" dur=".2s" fill="freeze" />
+        <animate id="eye1" attributeName="y1" from="0" to="25" begin="2s;eye4.end+2s" dur=".1s" fill="freeze" />
+        <animate attributeName="y2" from="50" to="25" begin="2s;eye4.end+2s" dur=".1s" fill="freeze" />
+        <animate id="eye2" attributeName="y1" from="25" to="0" begin="eye1.end" dur=".1s" fill="freeze" />
+        <animate attributeName="y2" from="25" to="50" begin="eye1.end" dur=".1s" fill="freeze" />
+        <animate id="eye3" attributeName="y1" from="0" to="25" begin="eye2.end" dur=".1s" fill="freeze" />
+        <animate attributeName="y2" from="50" to="25" begin="eye2.end" dur=".1s" fill="freeze" />
+        <animate id="eye4" attributeName="y1" from="25" to="0" begin="eye3.end" dur=".1s" fill="freeze" />
+        <animate attributeName="y2" from="25" to="50" begin="eye3.end" dur=".1s" fill="freeze" />
       </line>
     </symbol>
     <symbol id="line" overflow="visible">
