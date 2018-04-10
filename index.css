@@ -7,11 +7,18 @@ body {
   justify-content: center;
   align-items: center;
 }
-:any-link {
+#index-container {
+  display: flex;
+  padding-top: 0;
+  transition: all ease 1s;
+}
+#index-container > :any-link {
+  transition: all 200ms ease;
+  flex: 1;
   color: white;
   text-decoration: none;
   font-family: monospace;
-  margin: 1vmax;
+  border: 1vmax white solid;
   border-radius: 100vmax;
   display: flex;
   justify-content: center;
@@ -21,7 +28,25 @@ body {
   background: black;
   font-size: 3vmax;
 }
-img {
+#index-container > :any-link:hover,
+#index-container > :any-link:focus,
+#index-container > :any-link:active {
+  flex: 2;
+}
+@media (max-aspect-ratio: 3/2) {
+  #index-container {
+    padding-top: 3vmax;
+    flex-direction: column;
+  }
+  #index-container > :any-link:hover,
+  #index-container > :any-link:focus,
+  #index-container > :any-link:active {
+    flex: 1;
+    height: 16vmax;
+  }
+}
+#logo {
   width: 50vmax;
   max-width: 100vw;
+  transition: all ease 1s;
 }
