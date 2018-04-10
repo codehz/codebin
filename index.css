@@ -1,3 +1,4 @@
+@import "/fonts.css";
 body {
   padding: 0;
   margin: 0;
@@ -17,7 +18,7 @@ body {
   flex: 1;
   color: white;
   text-decoration: none;
-  font-family: monospace;
+  font-family: Iosevka, monospace;
   border: 1vmax white solid;
   border-radius: 100vmax;
   display: flex;
