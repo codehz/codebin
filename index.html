@@ -8,6 +8,35 @@
 <link rel=stylesheet href=/index.css>
 <link rel=icon type=image/png href=/logo.png>
 <script type=module src=/index.js></script>
+<script>
+try {
+  function getChromeVersion () {
+      var raw = navigator.userAgent.match(/Chrom(e|ium)\/([0-9]+)\./);
+      return raw ? parseInt(raw[2], 10) : false;
+  }
+  if (getChromeVersion() < 65) throw new Error();
+} catch (x) {
+  setTimeout(function() {document.write('OUTDATED BROWSER DETECTED! Please use Chrome/Chromium 65+')}, 0)
+}
+</script>
+<script>
+(function(l) {
+  if (l.search) {
+    const q = {};
+    l.search.slice(1).split('&').forEach(function(v) {
+      var a = v.split('=');
+      q[a[0]] = decodeURIComponent(a.slice(1).join('='));
+    });
+    if (q.p !== undefined) {
+      window.history.replaceState(null, null,
+        l.pathname.slice(0, -1) + (q.p || '') +
+        (q.q ? ('?' + q.q) : '') +
+        l.hash
+      );
+    }
+  }
+}(window.location))
+</script>
 <img src=/codebin.svg>
 <a href=/new>New</a>
 <a href=/about>About</a>
