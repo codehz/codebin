@@ -7,6 +7,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  font-family: Iosevka, monospace;
 }
 #index-container {
   display: flex;
@@ -18,7 +19,6 @@ body {
   flex: 1;
   color: white;
   text-decoration: none;
-  font-family: Iosevka, monospace;
   border: 1vmax white solid;
   border-radius: 100vmax;
   display: flex;
@@ -63,9 +63,78 @@ body {
   font-size: 10vmax;
   font-family: monospace;
   opacity: 0;
+  pointer-events: none;
 }
 #root:empty::before {
   content: "loading...";
   font-size: 5vmax;
   opacity: 1;
+}
+/* pen */
+#workspace {
+  --aside-width: 300px;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: 50px 1fr 30px;
+  grid-template-columns: var(--aside-width) 1fr;
+}
+@keyframes header-anim {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+#workspace header {
+  grid-column: 1 / 3;
+  background: black;
+  color: white;
+  animation-name: header-anim;
+  animation-fill-mode: both;
+  animation-duration: .5s;
+  animation-delay: 0s;
+  animation-timing-function: ease;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+}
+#workspace header::before {
+  content: 'Pen: ' attr(data-penid);
+  font-size: 30px;
+}
+@keyframes fm-anim {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+#workspace .file-manager {
+  box-shadow: inset -1px 0 #ccc;
+  animation-name: fm-anim;
+  animation-fill-mode: both;
+  animation-duration: 1s;
+  animation-delay: .3s;
+  animation-timing-function: ease;
+}
+@keyframes footer-anim {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+#workspace footer {
+  grid-column: 1 / 3;
+  box-shadow: inset 0 1px #ccc;
+  animation-name: footer-anim;
+  animation-fill-mode: both;
+  animation-duration: .3s;
+  animation-delay: 0s;
+  animation-timing-function: ease;
 }
